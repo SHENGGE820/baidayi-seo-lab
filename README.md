@@ -2,6 +2,8 @@
 
 透過 Gemini 將主題與公司資料整理成候選標題、文章架構與完整 SEO 文章草稿。
 
+公司定位、服務、讀者、語氣及三階段Gemini指令已預設，使用者只需提供本次主題與選填補充資料。[查看公司寫作設定](公司寫作設定說明.md)。管理者可在GitHub維護`company-settings.json`，每次生成都自動帶入，沒有API金鑰存放在設定檔。
+
 **操作網站：https://shengge820.github.io/baidayi-seo-lab/**
 
 這個 GitHub 頁面用來保存原始碼；上方 GitHub Pages 網址才是實際操作入口。
@@ -47,3 +49,5 @@ GitHub Pages 可直接開啟，不需要登入網站帳號。每台電腦需要�
 ## 更新網站
 
 網站直接使用 `main` 分支根目錄的 `index.html`，不需要套件或建置。修改後推送到 GitHub，GitHub Pages 會重新部署。
+
+線上版每次開啟會讀取同目錄的`company-settings.json`，載入失敗時會阻擋新生成並提供重試，不會默默使用舊設定。更新可帶走的單一HTML時，執行`node scripts/sync-company-settings.cjs`同步內嵌預設，再提供新檔。

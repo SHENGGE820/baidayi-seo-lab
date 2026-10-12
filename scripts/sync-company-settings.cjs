@@ -1,0 +1,13 @@
+const fs=require('node:fs');
+const vm=require('node:vm');
+const file='company-settings.json';
+const settings=JSON.parse(fs.readFileSync(file,'utf8'));
+if(!settings.version||!settings.company?.name||!settings.editorial?.audience||!Array.isArray(settings.gemini?.systemRules)||!settings.stages?.article)throw new Error('Invalid company settings');
+const serialized=JSON.stringify(settings).replace(/</g,'\\u003c');
+let html=fs.readFileSync('index.html','utf8');
+const tag='<script id="company-defaults" type="application/json">'+serialized+'</script>';
+const existing=/<script id="company-defaults" type="application\/json">[\s\S]*?<\/script>/;
+if(existing.test(html))html=html.replace(existing,()=>tag);else html=html.replace('<script>\n',tag+'\n<script>\n');
+new vm.Script(html.match(/<script>([\s\S]*?)<\/script>/)[1]);
+fs.writeFileSync('index.html',html);
+console.log(JSON.stringify({synced:true,version:settings.version,standalone:true}));
