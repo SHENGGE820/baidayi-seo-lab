@@ -1,0 +1,7 @@
+.env*
+.dev.vars
+*.pem
+node_modules/
+*實作紀錄*.json
+*.zip
+
