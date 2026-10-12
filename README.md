@@ -41,7 +41,8 @@ GitHub Pages 可直接開啟，不需要登入網站帳號。每台電腦需要�
 
 - [Gemini API 金鑰](https://ai.google.dev/gemini-api/docs/api-key)
 - [模型費用與免費額度](https://ai.google.dev/gemini-api/docs/pricing)
-- [百達醫官網](https://baidayi-enterprise.com/)
+- [百達醫公司網站](https://shengge820.github.io/baidayi-enterprise-website/)
+- [全面性服務](https://shengge820.github.io/baidayi-premium-redesign/%E5%85%A8%E9%9D%A2%E6%80%A7%E6%9C%8D%E5%8B%99/index.html)
 
 ## 更新網站
 
